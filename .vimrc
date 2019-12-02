@@ -11,8 +11,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " theme
-syntax on
-set background=dark
 Plugin 'morhetz/gruvbox'
 
 " rails plugins
@@ -29,14 +27,11 @@ filetype plugin indent on    " required
 
 " Put your non-Plugin stuff after this line
 syntax on
+set background=dark
 
 let g:gruvbox_contrast_light=1
 let g:gruvbox_italic=1
 colorscheme gruvbox
-
-let mapleader = "\<Space>"
-
-map <Leader>vi :tabe ~/.vimrc<CR>	" opens .vimrc file in a new tab
 
 " Note that remapping C-s requires flow control to be disabled
 " (e.g. in .bashrc or .zshrc)
@@ -51,6 +46,10 @@ let test#ruby#use_spring_binstub = 1
 map <silent> <C-l> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
 map <silent> <C-@> :FlyGrep<CR>
+
+" Switch to previously opened file
+map <C-\> :e#<CR>
+imap <C-\> :e#<CR>
 
 " block arrow keys in normal mode
 noremap <Up> <Nop>
