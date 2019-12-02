@@ -91,3 +91,6 @@ let g:ctrlp_max_files=0
 " git commit message
 autocmd FileType gitcommit set colorcolumn=73
 autocmd FileType gitcommit set textwidth=72
+
+" ignore directories
+set wildignore+=*/tmp/*,*/node_modules/*,*.sql,*/dist/*,*/vendor/bundle/*
