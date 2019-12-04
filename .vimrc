@@ -29,6 +29,10 @@ filetype plugin indent on    " required
 syntax on
 set background=dark
 
+" Enable built-in matchit plugin
+runtime macros/matchit.vim
+" ================
+
 let g:gruvbox_contrast_light=1
 let g:gruvbox_italic=1
 colorscheme gruvbox
