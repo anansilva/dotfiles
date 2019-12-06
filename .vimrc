@@ -20,6 +20,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'janko/vim-test'
 Plugin 'benmills/vimux'
 Plugin 'wsdjeg/FlyGrep.vim'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,6 +33,11 @@ set background=dark
 " Enable built-in matchit plugin
 runtime macros/matchit.vim
 " ================
+
+let mapleader = "\<Space>"
+
+map <Leader>o 0f{cwdo<CR><esc>A<BS><CR>end<esc>
+map <Leader>j 0$bcw{<esc><S-j><S-j>cw}<esc>
 
 let g:gruvbox_contrast_light=1
 let g:gruvbox_italic=1
@@ -60,6 +66,16 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" nerdtree
+let g:netrw_banner = 0
+"let g:netrw_liststyle=3
+"let g:netrw_list_hide= '.*\.beam$'
+let g:NERDTreeWinSize = 30
+map <C-n> :NERDTreeToggle<CR>
+map <C-k> :NERDTreeFind<CR>
+let g:NERDTreeHijackNetrw=0
+let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist']
 
 command! Q q " Bind :Q to :q
 command! Qall qall
