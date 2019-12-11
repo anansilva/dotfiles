@@ -34,7 +34,7 @@ set background=dark
 runtime macros/matchit.vim
 " ================
 
-let mapleader = "\<Space>"
+let mapleader = ","
 
 map <Leader>o 0f{cwdo<CR><esc>A<BS><CR>end<esc>
 map <Leader>j 0$bcw{<esc><S-j><S-j>cw}<esc>
@@ -47,6 +47,8 @@ colorscheme gruvbox
 " (e.g. in .bashrc or .zshrc)
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
+
+map <Leader>b obinding.pry<esc>:w<cr>
 
 " run tests in a tmux terminal
 " ctrl + l runs the whole file
