@@ -21,6 +21,7 @@ Plugin 'janko/vim-test'
 Plugin 'benmills/vimux'
 Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,7 +54,7 @@ map <Leader>b obinding.pry<esc>:w<cr>
 " run tests in a tmux terminal
 " ctrl + l runs the whole file
 " ctrl + h runs the cursor line
-let test#ruby#rspec#executable = 'bundle exec rspec'
+let test#ruby#rspec#executable = 'spring rspec'
 let test#ruby#use_spring_binstub = 1
 map <silent> <C-l> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
