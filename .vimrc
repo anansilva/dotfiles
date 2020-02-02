@@ -21,6 +21,8 @@ Plugin 'janko/vim-test'
 Plugin 'benmills/vimux'
 Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,6 +71,10 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" avoid accidentaly leaving vim
+nnoremap Z <Nop>
+nnoremap ZZ <Nop>
+
 " nerdtree
 let g:netrw_banner = 0
 "let g:netrw_liststyle=3
@@ -86,25 +92,35 @@ command! E e
 command! W w
 command! Wq wq
 
-set number
+set autoread	" Auto reload changed files
+set number 		" Enable line numbers
 set autoindent
 set history=1000
-set ruler
-set nowrap
+set ruler  " show the cursor position all the time
+set nowrap " Don't wrap long lines
 set textwidth=80
 set colorcolumn=80
-set nobackup
+set nobackup nowritebackup noswapfile " Turn off backup files
 set noswapfile
 set undofile
 set ttyfast
 set title
-set laststatus=2
+set laststatus=2 " Always display the status line
 set cursorline
+set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
+
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
 
 "remove spaces when saving
 autocmd BufWritePre * :%s/\s\+$//e
 " 2 spaced tabs
 autocmd filetype ruby :setlocal sw=2 ts=2 sts=2
+" Allow comments in all files
+autocmd FileType apache setlocal commentstring=#\ %s
+
 
 " ctrlp configs
 let g:ctrlp_working_path_mode = 0
