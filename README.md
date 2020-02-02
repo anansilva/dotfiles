@@ -1,4 +1,4 @@
-Ana's dot files
+# Ana's dot files
 
 ## Installation
 
@@ -13,4 +13,4 @@ Ana's dot files
   
 ## More
 
-follow me on Twitter](https://twitter.com/anakbns)
+[follow me on Twitter](https://twitter.com/anakbns)
