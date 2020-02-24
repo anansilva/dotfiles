@@ -24,6 +24,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'takac/vim-hardtime'
+Plugin 'tpope/vim-unimpaired'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,7 +58,8 @@ map <Leader>b obinding.pry<esc>:w<cr>
 " run tests in a tmux terminal
 " ctrl + l runs the whole file
 " ctrl + h runs the cursor line
-let test#ruby#rspec#executable = 'spring rspec'
+" let test#ruby#rspec#executable = 'spring rspec'
+let test#ruby#rspec#executable = 'bundle exec rspec'
 let test#ruby#use_spring_binstub = 1
 map <silent> <C-l> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
@@ -80,11 +83,11 @@ nnoremap ZZ <Nop>
 let g:netrw_banner = 0
 "let g:netrw_liststyle=3
 "let g:netrw_list_hide= '.*\.beam$'
-let g:NERDTreeWinSize = 30
+let g:NERDTreeWinSize = 50
 map <C-n> :NERDTreeToggle<CR>
 map <C-k> :NERDTreeFind<CR>
 let g:NERDTreeHijackNetrw=0
-let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist']
+let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist', 'tmp']
 
 command! Q q " Bind :Q to :q
 command! Qall qall
@@ -102,13 +105,13 @@ set nowrap " Don't wrap long lines
 set textwidth=80
 set colorcolumn=80
 set nobackup nowritebackup noswapfile " Turn off backup files
-set noswapfile
 set undofile
 set ttyfast
 set title
 set laststatus=2 " Always display the status line
 set cursorline
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
+set relativenumber
 
 " (Hopefully) removes the delay when hitting esc in insert mode
 set noesckeys
@@ -126,6 +129,7 @@ autocmd FileType apache setlocal commentstring=#\ %s
 " ctrlp configs
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_files=0
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|tmp\|vendor\|dist\'
 
 " git commit message
 autocmd FileType gitcommit set colorcolumn=73

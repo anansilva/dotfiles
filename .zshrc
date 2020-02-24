@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ananunesdasilva/.oh-my-zsh
+export ZSH=/Users/anasilva/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -110,8 +110,8 @@ byarn() {
 }
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # Add slack webhook for deployments
 export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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
