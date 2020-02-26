@@ -26,6 +26,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'takac/vim-hardtime'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'bkad/camelcasemotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,11 +56,27 @@ imap <C-s> <esc>:w<CR>
 
 map <Leader>b obinding.pry<esc>:w<cr>
 
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
+
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
 " run tests in a tmux terminal
 " ctrl + l runs the whole file
 " ctrl + h runs the cursor line
-" let test#ruby#rspec#executable = 'spring rspec'
-let test#ruby#rspec#executable = 'bundle exec rspec'
+let test#ruby#rspec#executable = 'spring rspec'
+" let test#ruby#rspec#executable = 'bundle exec rspec'
 let test#ruby#use_spring_binstub = 1
 map <silent> <C-l> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
@@ -88,6 +105,9 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-k> :NERDTreeFind<CR>
 let g:NERDTreeHijackNetrw=0
 let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist', 'tmp']
+
+" camelcasemotion
+let g:camelcasemotion_key = '<leader>'
 
 command! Q q " Bind :Q to :q
 command! Qall qall
