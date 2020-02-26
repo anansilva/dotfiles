@@ -94,7 +94,18 @@ alias zshconfig="vim ~/.zshrc"
 alias runningb="lsof -wni tcp:3001"
 alias runningt="lsof -wni tcp:3000"
 alias spring="./bin/spring"
+alias be="bundle exec"
+alias gpr="git pull --rebase"
+alias nb="git checkout -b"
+alias m="git checkout master"
+alias gd="git diff"
+alias gs="git status"
+alias gp="git push"
+alias gcm="git commit -m"
+alias gad="git add --all ."
 #alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#Functions
 cb() { git branch | grep "*" | awk '{ print $2 }' | pbcopy }
 
 bplease() {
