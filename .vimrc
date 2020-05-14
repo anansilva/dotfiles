@@ -10,8 +10,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" theme
+" theme and visuals
 Plugin 'morhetz/gruvbox'
+Plugin 'itchyny/lightline.vim'
+Plugin 'mengelbrecht/lightline-bufferline'
 
 " ruby/rails
 Plugin 'tpope/vim-rails'
@@ -23,7 +25,7 @@ Plugin 'tpope/vim-commentary' "gcc or gc+motion to comment code
 Plugin 'tpope/vim-fugitive'   "check git history
 Plugin 'tpope/vim-unimpaired' "key combinations for fugitive
 
-" finders
+" search
 Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
@@ -34,6 +36,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'janko/vim-test'
 Plugin 'benmills/vimux'
 
+
+" ignore directories
+set wildignore+=*/tmp/*,*/node_modules/*,*.sql,*/dist/*,*/vendor/bundle/*
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -50,6 +55,18 @@ set background=dark
 let g:gruvbox_contrast_light=1
 let g:gruvbox_italic=1
 colorscheme gruvbox
+
+" ligtline
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'absolutepath', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
+      \ },
+      \ }
+let g:lightline.component = { 'close': '' }
+
 
 " ================ General Config ====================
 
@@ -149,7 +166,7 @@ map <silent> <C-l> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
 
 
-" ================ Finders' Configs ====================
+" ================ Search Configs ====================
 
 " nerdtree
 let g:netrw_banner = 0
@@ -167,10 +184,15 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|tmp\|vendor\|dist\'
 
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+
+
+" ================ File Navigation Configs ====================
+
 " Switch to previously opened file
 map <C-\> :e#<CR>
 imap <C-\> :e#<CR>
-
 
 " ================ Git Configs ====================
 
