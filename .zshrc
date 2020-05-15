@@ -122,12 +122,14 @@ byarn() {
  bundle && yarn
 }
 
+# load private config
+if [ -f ~/.zsh/private ]; then
+. ~/.zsh/private
+fi
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
-
-# Add slack webhook for deployments
-export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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
 
 export EDITOR=vim
 
