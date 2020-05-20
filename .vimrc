@@ -26,11 +26,10 @@ Plugin 'tpope/vim-fugitive'   "check git history
 Plugin 'tpope/vim-unimpaired' "key combinations for fugitive
 
 " search
-Plugin 'wsdjeg/FlyGrep.vim'
+" Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
 
 " testing
 Plugin 'janko/vim-test'
@@ -126,6 +125,8 @@ nnoremap ZZ <Nop>
 " ignore directories
 set wildignore+=*/tmp/*,*/node_modules/*,*.sql,*/dist/*,*/vendor/bundle/*
 
+"other files
+au BufNewFile,BufRead *.prawn set filetype=ruby
 
 " ================ Save Configs ====================
 
@@ -146,13 +147,6 @@ autocmd FileType apache setlocal commentstring=#\ %s
 
 let mapleader = ","
 
-"Toggle ruby blocks
-map <Leader>o 0f{cwdo<CR><esc>A<BS><CR>end<esc>
-map <Leader>j 0$bcw{<esc><S-j><S-j>cw}<esc>
-
-"Adds binding pry to the line below the cursor
-map <Leader>b obinding.pry<esc>:w<cr>
-
 
 " ================ Tests' Configs ====================
 
@@ -160,10 +154,6 @@ map <Leader>b obinding.pry<esc>:w<cr>
 " let test#ruby#rspec#executable = 'spring rspec'
 let test#ruby#rspec#executable = 'bundle exec rspec'
 let test#ruby#use_spring_binstub = 1
-" ctrl + l runs the whole file
-map <silent> <C-l> :TestFile -strategy=vimux<CR>
-" ctrl + h runs the cursor line
-map <silent> <C-h> :TestNearest -strategy=vimux<CR>
 
 
 " ================ Search Configs ====================
@@ -173,16 +163,34 @@ let g:netrw_banner = 0
 let g:NERDTreeWinSize = 50
 map <C-n> :NERDTreeToggle<CR>
 map <C-k> :NERDTreeFind<CR>
+
 let g:NERDTreeHijackNetrw=0
+let g:NERDTreeStatusline = '%#NonText#'
 let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist', 'tmp']
 
-" flygrep
-map <silent> <C-@> :FlyGrep<CR>
+"rg
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%m
+endif
 
-" ctrlp
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_files=0
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|tmp\|vendor\|dist\'
+" fzf
+let rgignore = '**/node_modules/*,**/.git/*,**/vendor/assets/*,**/vendor/bundle/*,**/public/assets/*,**/public/packs/*,**/public/fonts/*,*.sql,*.csv,*.log,**/.keep,*.json'
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --hidden --follow --no-heading --color=always --smart-case --glob "!{rgignore}" -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+			                  \ call fzf#run(fzf#wrap({'source': 'rg --files --hidden --follow', 'down': '40%'}))
+
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :RG<CR>
 
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
@@ -199,3 +207,23 @@ imap <C-\> :e#<CR>
 " git commit message
 autocmd FileType gitcommit set colorcolumn=73
 autocmd FileType gitcommit set textwidth=72
+
+" ================ Misc Custom Bindings ====================
+"Toggle ruby blocks
+map <Leader>ob 0f{cwdo<CR><esc>A<BS><CR>end<esc>
+map <Leader>cb 0$bcw{<esc><S-j><S-j>cw}<esc>
+
+"Adds pry on line bellow
+map <Leader>b obinding.pry<esc>:w<cr>
+
+"paste
+noremap <leader>sp :set paste<CR>
+noremap <leader>snp :set nopaste<CR>
+
+"clean search highlight
+noremap <leader>z :nohl<CR>
+
+"tests
+map <silent> <leader>tf :TestFile -strategy=vimux<CR>
+map <silent> <leader>tn :TestNearest -strategy=vimux<CR>
+map <silent> <leader>tl :TestLast -strategy=vimux<CR>
