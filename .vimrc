@@ -227,3 +227,6 @@ noremap <leader>z :nohl<CR>
 map <silent> <leader>tf :TestFile -strategy=vimux<CR>
 map <silent> <leader>tn :TestNearest -strategy=vimux<CR>
 map <silent> <leader>tl :TestLast -strategy=vimux<CR>
+
+map <leader>gl :0Glog<CR>
+map <leader>gb :Gblame<CR>
