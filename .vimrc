@@ -127,6 +127,7 @@ set wildignore+=*/tmp/*,*/node_modules/*,*.sql,*/dist/*,*/vendor/bundle/*
 
 "other files
 au BufNewFile,BufRead *.prawn set filetype=ruby
+au BufNewFile,BufRead *.ts set filetype=typescript
 
 " ================ Save Configs ====================
 
@@ -224,9 +225,9 @@ noremap <leader>snp :set nopaste<CR>
 noremap <leader>z :nohl<CR>
 
 "tests
-map <silent> <leader>tf :TestFile -strategy=vimux<CR>
-map <silent> <leader>tn :TestNearest -strategy=vimux<CR>
-map <silent> <leader>tl :TestLast -strategy=vimux<CR>
+map <silent> <C-j> :TestFile -strategy=vimux<CR>
+map <silent> <C-h> :TestNearest -strategy=vimux<CR>
+map <silent> <C-l> :TestLast -strategy=vimux<CR>
 
 map <leader>gl :0Glog<CR>
 map <leader>gb :Gblame<CR>
