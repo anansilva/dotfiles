@@ -64,3 +64,21 @@ windows:
       panes:
         - editor: vim
         - bash: echo 'hello!'
+  - translations:
+      root: ~/sabe-translations
+      layout: main-horizontal
+      panes:
+        - editor: vim
+        - bash: echo 'hello!'
+  - jobs:
+      root: ~/sabe-jobs
+      layout: main-horizontal
+      panes:
+        - editor: vim
+        - bash: echo 'hello!'
+  - scripts:
+      root: ~/bugle-scripts
+      layout: main-horizontal
+      panes:
+        - editor: vim
+        - bash: echo 'hello!'
