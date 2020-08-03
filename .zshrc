@@ -105,6 +105,7 @@ alias gcm="git commit -m"
 alias gad="git add --all ."
 alias gfa="git fetch --all"
 alias gmm="git merge origin master"
+alias vim='mvim -v'
 #alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #Functions
