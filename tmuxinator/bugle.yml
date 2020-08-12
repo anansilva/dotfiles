@@ -45,8 +45,10 @@ windows:
       layout: 0943,80x24,0,0[80x22,0,0,1,80x1,0,23{39x1,0,23,11,40x1,40,23,12}]
       panes:
         - editor: vim
-        - bash: bundle
         - bash: echo 'hello!'
+        - bundle:
+           - bundle
+           - rails s -p 3001
   - training:
       root: ~/sabe-training
       layout: main-horizontal
@@ -71,8 +73,9 @@ windows:
       layout: main-horizontal
       panes:
         - editor: vim
-        - bash: echo 'hello!'
-        - bash: echo 'hello!'
+        - bash:
+          - cd packages/backoffice
+          - yarn start
   - translations:
       root: ~/sabe-translations
       layout: main-horizontal
