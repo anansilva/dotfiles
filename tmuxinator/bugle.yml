@@ -42,15 +42,19 @@ startup_window: backoffice
 windows:
   - backoffice:
       root: ~/sabe-backoffice
-      layout: main-horizontal
+      layout: 0943,80x24,0,0[80x22,0,0,1,80x1,0,23{39x1,0,23,11,40x1,40,23,12}]
       panes:
         - editor: vim
         - bash: echo 'hello!'
+        - bundle:
+           - bundle
+           - rails s -p 3001
   - training:
       root: ~/sabe-training
       layout: main-horizontal
       panes:
         - editor: vim
+        - bash: echo 'hello!'
         - bash: echo 'hello!'
   - core-models:
       root: ~/sabe-core-models
@@ -64,6 +68,14 @@ windows:
       panes:
         - editor: vim
         - bash: echo 'hello!'
+  - web-app:
+      root: ~/bugle-web-app
+      layout: main-horizontal
+      panes:
+        - editor: vim
+        - bash:
+          - cd packages/backoffice
+          - yarn start
   - translations:
       root: ~/sabe-translations
       layout: main-horizontal
@@ -78,6 +90,12 @@ windows:
         - bash: echo 'hello!'
   - scripts:
       root: ~/bugle-scripts
+      layout: main-horizontal
+      panes:
+        - editor: vim
+        - bash: echo 'hello!'
+  - dotfiles:
+      root: ~/anans/dotfiles
       layout: main-horizontal
       panes:
         - editor: vim
