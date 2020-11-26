@@ -157,10 +157,16 @@ autocmd FileType apache setlocal commentstring=#\ %s
 let mapleader = ","
 
 
+" ================ Copy Paste Configs ====================
+nmap <leader>pbp :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <leader>pbp <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <leader>pby :.w !pbcopy<CR><CR>
+vmap <leader>pby :w !pbcopy<CR><CR>
+
+
 " ================ Tests' Configs ====================
 
 " run tests in a tmux terminal
-" let test#ruby#rspec#executable = 'spring rspec'
 let test#ruby#rspec#executable = 'bundle exec rspec'
 let test#ruby#use_spring_binstub = 1
 
@@ -266,6 +272,8 @@ noremap <leader>z :nohl<CR>
 map <silent> <C-j> :TestFile -strategy=vimux<CR>
 map <silent> <C-h> :TestNearest -strategy=vimux<CR>
 map <silent> <C-l> :TestLast -strategy=vimux<CR>
+map <leader>a :A<CR>
 
+"git
 map <leader>gl :0Glog<CR>
 map <leader>gb :Gblame<CR>
