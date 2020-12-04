@@ -1,5 +1,6 @@
 BASE="$HOME/.zsh"
-export ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME="robbyrussell"
 
@@ -12,14 +13,14 @@ do
   source "$file"
 done
 
-source $ZSH/oh-my-zsh.sh
-
 alias zshconfig="vim ~/.zshrc"
 alias runningb="lsof -wni tcp:3001"
 alias runningt="lsof -wni tcp:3000"
 alias spring="./bin/spring"
 alias be="bundle exec"
 alias vim='mvim -v'
+
+#Functions
 
 bplease() {
 kill -9 $(lsof -i tcp:3001 | grep ruby | awk '{print $2}')

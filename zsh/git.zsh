@@ -11,4 +11,5 @@ alias gfa="git fetch --all"
 alias gmm="git merge origin master"
 
 # Functions
+cb() { git branch | grep "*" | awk '{ print $2 }' | pbcopy }
 gpo() { git push origin $(git branch | grep "*" | awk '{ print $2 }') }
