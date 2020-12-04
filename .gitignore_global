@@ -9,3 +9,7 @@
 
 # vim #
 *.swp
+
+# private
+~/.zsh/private
+.zsh/private
