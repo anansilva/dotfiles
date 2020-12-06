@@ -24,12 +24,21 @@ export EDITOR=vim
 #Functions
 
 sz() { source ~/.zshrc }
-sl() {
+slz() {
   for file in ~/dotfiles/zsh/*zsh
   do
     filename="$(basename "${file}")"
     mkdir -p ~/.zsh
     ln -sf "${file}" ~/.zsh/"${filename}"
+  done
+}
+
+slv() {
+  for file in ~/dotfiles/vim/*vim
+  do
+    filename="$(basename "${file}")"
+    mkdir -p ~/.vim
+    ln -sf "${file}" ~/.vim/"${filename}"
   done
 }
 

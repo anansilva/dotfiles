@@ -1,4 +1,4 @@
-# Alias
+# Aliases
 alias gpr="git pull --rebase"
 alias nb="git checkout -b"
 alias m="git checkout master"

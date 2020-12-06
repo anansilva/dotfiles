@@ -1,4 +1,4 @@
-# Alias
+# Aliases
 alias hrc="heroku run rails console"
 alias hdb="heroku run rails db:migrate"
 
