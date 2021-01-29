@@ -13,7 +13,7 @@ git clone git://github.com/anansilva/dotfiles ~/.dotfiles`
 
 ```
 ln -sf ~/dotfiles/zshrc ~/.zshrc
-ln -sf ~/dotfiles/vim/vimrc ~/.vim/vimrc
+ln -sf ~/dotfiles/vimrc ~/.vim/vimrc
 ```
 
 ### 3. Symlink other zsh and vim sub-config files to your home directory
