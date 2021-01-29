@@ -1,3 +1,4 @@
+ZSH_DISABLE_COMPFIX=true
 BASE="$HOME/.zsh"
 ZSH=$HOME/.oh-my-zsh
 
