@@ -24,7 +24,6 @@ brew "poppler"
 brew "postgresql", restart_service: true
 brew "postgresql@11"
 brew "postgresql@12"
-brew "postgresql@9.6"
 brew "ruby-build"
 brew "rbenv"
 brew "sdl2"
