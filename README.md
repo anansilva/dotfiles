@@ -42,5 +42,6 @@ git config --global core.excludesfile ~/.gitignore_global
 Inspiration
 -----------
 
+- [Leandro Proença](https://github.com/leandronsp/dotfiles)
 - [Chris Toomey](https://github.com/christoomey/dotfiles)
 - [Ben Orenstein](https://github.com/r00k/dotfiles)
