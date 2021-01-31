@@ -44,6 +44,15 @@ slv() {
   done
 }
 
+slt() {
+  for file in ~/dotfiles/tmuxinator/*yml
+  do
+    filename="$(basename "${file}")"
+    mkdir -p ~/.tmuxinator
+    ln -sf "${file}" ~/.tmuxinator/"${filename}"
+  done
+}
+
 # load private config
 if [ -f ~/.zsh/private ]; then
 . ~/.zsh/private
