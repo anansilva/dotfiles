@@ -5,6 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 MYZSH="~/.zshrc"
 
 alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vim"
 
 ZSH_THEME="robbyrussell"
 
