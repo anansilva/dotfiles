@@ -8,7 +8,7 @@ map <C-k> :NERDTreeFind<CR>
 
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeStatusline = '%#NonText#'
-let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist', 'tmp']
+let NERDTreeIgnore=['\.o$', '\~$', 'node_modules', 'cypress/data', 'dist', '^tmp$[[dir]]']
 
 " Switch to previously opened file
 map <C-\> :e#<CR>
