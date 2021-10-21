@@ -17,6 +17,7 @@ git clone git://github.com/anansilva/dotfiles ~/dotfiles
 ### 2. Symlink the zsh, vim, tmux and tmuxinator config files to your home directory
 
 ```
+ln -sf ~/dotfiles/zsh ~/.zsh
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
