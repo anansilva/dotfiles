@@ -26,10 +26,13 @@ ln -sf ~/dotfiles/tmuxinator ~/.tmuxinator
 
 ### 3. Symlink other zsh and vim sub-config files to your home directory
 
+- `sz` This will source `.zshrc`
 - `slz` This will symlink all the zsh config files under the `~/dotfiles/zsh`
 folder
 - `slv` This will symlink all the vim config files under the `~/dotfiles/vim` folder
 - `slt` This will symlink all the tmuxinator config files under the `~/dotfiles/tmuxinator` folder
+
+You might need to install mvim!
 
 ### 4. Install all the vim plugins
 Vim plugins are managed through vundle. You'll need to install vundle to get them.
