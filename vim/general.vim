@@ -18,7 +18,6 @@ set ttyfast
 set title
 set laststatus=2                " Always display the status line
 set cursorline
-set relativenumber
 
 " indentation
 set expandtab
