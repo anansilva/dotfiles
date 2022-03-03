@@ -57,6 +57,20 @@ You might need to tell git to pick up this file:
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
+### 6. Install ripgrep
+
+Needed for fzf (search):
+
+```
+brew install ripgrep
+```
+
+### 7. (Optional) Install tmuz
+
+```
+brew install tmux
+```
+
 Inspiration
 -----------
 
