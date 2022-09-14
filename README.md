@@ -11,7 +11,7 @@ Installation
 
 ### 1. Clone this repository
 ```
-git clone git://github.com/anansilva/dotfiles ~/dotfiles
+git clone git@github.com:anansilva/dotfiles.git ~/dotfiles
 ```
 
 ### 2. Symlink the zsh, vim, tmux and tmuxinator config files to your home directory
