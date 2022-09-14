@@ -1,10 +1,10 @@
 Dotfiles
 =======
 
-- zsh
+- zsh (macOS default shell since Catalina)
 - vim
-- tmux
-- tmuxinator
+- [tmux](https://github.com/tmux/tmux/wiki) (`brew install tmux`)
+- [tmuxinator](https://github.com/tmuxinator/tmuxinator) (`brew install tmuxinator`)
 
 Installation
 ------------
