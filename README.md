@@ -3,11 +3,19 @@ Dotfiles
 
 - zsh (macOS default shell since Catalina)
 - vim
-- [tmux](https://github.com/tmux/tmux/wiki) (`brew install tmux`)
-- [tmuxinator](https://github.com/tmuxinator/tmuxinator) (`brew install tmuxinator`)
+- [tmux](https://github.com/tmux/tmux/wiki)
+- [tmuxinator](https://github.com/tmuxinator/tmuxinator)
 
 Installation
 ------------
+
+
+### 0. Install tmux and tmuxinator
+
+```
+brew install tmux
+brew install tmuxinator
+```
 
 ### 1. Clone this repository
 ```
@@ -63,12 +71,6 @@ Needed for fzf (search):
 
 ```
 brew install ripgrep
-```
-
-### 7. (Optional) Install tmuz
-
-```
-brew install tmux
 ```
 
 Inspiration
