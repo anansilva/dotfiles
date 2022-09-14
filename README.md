@@ -10,11 +10,12 @@ Installation
 ------------
 
 
-### 0. Install tmux and tmuxinator
+### 0. Install tmux, tmuxinator and ohmyzsh
 
 ```
 brew install tmux
 brew install tmuxinator
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### 1. Clone this repository
