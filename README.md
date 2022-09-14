@@ -32,9 +32,14 @@ ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/tmuxinator ~/.tmuxinator
 ```
 
-### 3. Symlink other zsh and vim sub-config files to your home directory
+### 3. Source the zsh configs
 
-- `sz` This will source `.zshrc`
+`source ~/.zshrc`
+
+After this you will have the `sz` alias to source `.zshrc`
+
+### 4. Symlink other zsh and vim sub-config files to your home directory
+
 - `slz` This will symlink all the zsh config files under the `~/dotfiles/zsh`
 folder
 - `slv` This will symlink all the vim config files under the `~/dotfiles/vim` folder
@@ -42,7 +47,7 @@ folder
 
 You might need to install mvim!
 
-### 4. Install all the vim plugins
+### 5. Install all the vim plugins
 Vim plugins are managed through vundle. You'll need to install vundle to get them.
 
 ```
@@ -54,7 +59,7 @@ Enter vim and type `:PluginInstall`
 Add the Gruvbox theme importing the `~/dotfiles/vim/Gruvbox-dark.terminal` to
 your terminal preferences.
 
-### 5. Symlink the gitignore file
+### 6. Symlink the gitignore file
 ```
 ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 ```
@@ -65,7 +70,7 @@ You might need to tell git to pick up this file:
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
-### 6. Install ripgrep
+### 7. Install ripgrep
 
 Needed for fzf (search):
 
